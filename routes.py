@@ -13,6 +13,8 @@ import simplejson as json
 import requests 
 from requests import get
 from collections import OrderedDict
+import decodehex2
+import definitions
 #import sendsms as sms
 
 #os.environ['NO_PROXY'] = 'localhost'
@@ -135,6 +137,7 @@ def beacon():
 
         #decode and return it
         bcn1 = bcn.beacon(beaconID)
+	bcn1 = decodehex2.Beacon(beaconID)
         #return results
         return render_template('BeaconDecoded.html', \
             beaconID = beaconID, \
